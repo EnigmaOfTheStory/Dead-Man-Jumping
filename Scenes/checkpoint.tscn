@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dmh5g315bit6y"]
+
+[ext_resource type="Script" uid="uid://64wd4of7non1" path="res://Scripts/checkpoint.gd" id="1_2cwi7"]
+[ext_resource type="Texture2D" uid="uid://beyvxwb6f1c5v" path="res://Assets/Zan_Checkpoint.png" id="1_lbcco"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkbnx"]
+size = Vector2(16, 32)
+
+[node name="Checkpoint" type="Area2D" unique_id=206038986]
+script = ExtResource("1_2cwi7")
+
+[node name="Zan" type="Sprite2D" parent="." unique_id=1611324130]
+visible = false
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_lbcco")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1381882578]
+shape = SubResource("RectangleShape2D_qkbnx")
+debug_color = Color(8.1822276e-07, 0.58626324, 0.3697668, 0.41960785)
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=944906906]
