@@ -10,7 +10,6 @@ size = Vector2(16, 32)
 script = ExtResource("1_2cwi7")
 
 [node name="Zan" type="Sprite2D" parent="." unique_id=1611324130]
-visible = false
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("1_lbcco")
 
@@ -19,3 +18,5 @@ shape = SubResource("RectangleShape2D_qkbnx")
 debug_color = Color(8.1822276e-07, 0.58626324, 0.3697668, 0.41960785)
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=944906906]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

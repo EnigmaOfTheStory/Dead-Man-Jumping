@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -335.0
 @onready var CoyoteActive = false
 @onready var CoyoteDuration = 0.15
 var ON_GROUND = false
+var checkpoint_manager
 
 	
 func _physics_process(delta: float) -> void:
@@ -52,4 +53,5 @@ func CoyoteTimeUp():
 	CoyoteActive = false
 	
 func _kill_player():
-	get_tree().reload_current_scene()
+	checkpoint_manager = get_parent().get_node("CheckpointManager")
+	global_position = checkpoint_manager.last_location
