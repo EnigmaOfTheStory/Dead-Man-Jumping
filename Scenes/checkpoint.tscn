@@ -3,6 +3,13 @@
 [ext_resource type="Script" uid="uid://64wd4of7non1" path="res://Scripts/checkpoint.gd" id="1_2cwi7"]
 [ext_resource type="Texture2D" uid="uid://beyvxwb6f1c5v" path="res://Assets/Zan_Checkpoint.png" id="1_lbcco"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cwi7"]
+bg_color = Color(0, 1, 0.4, 0.6)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkbnx"]
 size = Vector2(16, 32)
 
@@ -10,8 +17,16 @@ size = Vector2(16, 32)
 script = ExtResource("1_2cwi7")
 
 [node name="Zan" type="Sprite2D" parent="." unique_id=1611324130]
+visible = false
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("1_lbcco")
+
+[node name="Panel" type="Panel" parent="." unique_id=2052226737]
+offset_left = -7.0
+offset_top = -12.0
+offset_right = 7.0
+offset_bottom = 12.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2cwi7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1381882578]
 shape = SubResource("RectangleShape2D_qkbnx")
