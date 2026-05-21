@@ -40,21 +40,16 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("Left", "Right")
 	if direction:
-		if Input.is_action_pressed("Shift") and (is_on_floor() or CoyoteActive):
-			velocity.x = direction * SHIFT_SPEED
-		else:
-			velocity.x = direction * SPEED
+		velocity.x = move_toward(velocity.x, direction * SPEED, SPEED / 10)
 	else:
-		if Input.is_action_pressed("Shift") and (is_on_floor() or CoyoteActive):
-			velocity.x = move_toward(velocity.x, 0, SHIFT_SPEED)
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	print(velocity)
 		
 	move_and_slide()
 	
 func _on_hit_box_body_entered(_body):
-	if not Input.is_action_pressed("Invincible"):
-		_kill_player()
+	_kill_player()
 		
 func CoyoteTimeUp():
 	CoyoteActive = false

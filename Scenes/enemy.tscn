@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cgwgk7wf33lm2"]
+
+[ext_resource type="Script" uid="uid://8rpe5033y2l7" path="res://Scenes/enemy.gd" id="1_hghv2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7xaro"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7k104"]
+bg_color = Color(1, 0, 0, 0.6)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="Enemy" type="CharacterBody2D" unique_id=2027245529]
+script = ExtResource("1_hghv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2102632984]
+shape = SubResource("CircleShape2D_7xaro")
+
+[node name="Panel" type="Panel" parent="." unique_id=187020758]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7k104")
