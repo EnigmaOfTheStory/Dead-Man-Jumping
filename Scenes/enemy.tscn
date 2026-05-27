@@ -4,6 +4,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7xaro"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hghv2"]
+radius = 11.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7k104"]
 bg_color = Color(1, 0, 0, 0.6)
 corner_radius_top_left = 100
@@ -12,10 +15,16 @@ corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
 [node name="Enemy" type="CharacterBody2D" unique_id=2027245529]
+collision_layer = 6
+collision_mask = 0
 script = ExtResource("1_hghv2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2102632984]
+[node name="Damage" type="CollisionShape2D" parent="." unique_id=2102632984]
 shape = SubResource("CircleShape2D_7xaro")
+
+[node name="Bounce" type="CollisionShape2D" parent="." unique_id=1338293549]
+shape = SubResource("CircleShape2D_hghv2")
+debug_color = Color(1, 1, 0, 0.41960785)
 
 [node name="Panel" type="Panel" parent="." unique_id=187020758]
 offset_left = -10.0

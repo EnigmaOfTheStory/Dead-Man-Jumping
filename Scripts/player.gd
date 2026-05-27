@@ -8,6 +8,8 @@ const JUMP_VELOCITY = -335.0
 @onready var CoyoteTimer = SceneTreeTimer
 @onready var CoyoteActive = false
 @onready var CoyoteDuration = 0.15
+@onready var enemy = get_parent().get_node("Enemy")
+@onready var player = self
 var ON_GROUND = false
 var checkpoint_manager
 
@@ -44,12 +46,16 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	print(velocity)
+	#print(velocity)
 		
 	move_and_slide()
 	
 func _on_hit_box_body_entered(_body):
 	_kill_player()
+
+func _on_bounce_box_body_entered(_body):
+	if Input.is_action_pressed("Bounce"):
+		velocity = 450 * (-enemy.global_position + player.global_position).normalized()
 		
 func CoyoteTimeUp():
 	CoyoteActive = false

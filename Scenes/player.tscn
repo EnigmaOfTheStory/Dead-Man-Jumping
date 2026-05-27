@@ -11,6 +11,10 @@ height = 23.0
 radius = 6.0
 height = 21.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
+radius = 12.0
+height = 33.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1277407326 groups=["Player"]]
 script = ExtResource("1_onrkg")
 
@@ -32,9 +36,18 @@ collision_mask = 2
 shape = SubResource("CapsuleShape2D_i3pqv")
 debug_color = Color(0.9843137, 0, 0, 0.41960785)
 
+[node name="BounceBox" type="Area2D" parent="." unique_id=1402210299]
+position = Vector2(0, 4.5)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceBox" unique_id=1299799459]
+shape = SubResource("CapsuleShape2D_cvnsp")
+debug_color = Color(1, 1, 0, 0.41960785)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1186107476]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
-[connection signal="body_shape_entered" from="HitBox" to="." method="_on_hit_box_body_shape_entered"]
+[connection signal="body_entered" from="BounceBox" to="." method="_on_bounce_box_body_entered"]
