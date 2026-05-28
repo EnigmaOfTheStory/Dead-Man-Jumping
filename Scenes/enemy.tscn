@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://8rpe5033y2l7" path="res://Scenes/enemy.gd" id="1_hghv2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7xaro"]
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hghv2"]
 radius = 11.0
