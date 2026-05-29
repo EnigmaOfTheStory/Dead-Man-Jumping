@@ -12,7 +12,7 @@ radius = 6.0
 height = 21.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
-radius = 27.225906
+radius = 33.003788
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvnsp"]
 bg_color = Color(0, 1, 0.8, 0)
@@ -61,10 +61,10 @@ shape = SubResource("CircleShape2D_cvnsp")
 debug_color = Color(1, 1, 0, 0.41960785)
 
 [node name="Panel2" type="Panel" parent="." unique_id=919783935]
-offset_left = -25.0
-offset_top = -21.0
-offset_right = 25.0
-offset_bottom = 29.0
+offset_left = -30.0
+offset_top = -26.0
+offset_right = 30.0
+offset_bottom = 34.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_cvnsp")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1186107476]
