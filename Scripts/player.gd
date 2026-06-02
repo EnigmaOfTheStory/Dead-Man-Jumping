@@ -27,7 +27,6 @@ func find_closest_enemy() -> Object:
 			closestEnemy = enemy
 		
 	return closestEnemy
-	closestEnemy = null
 
 func _ready():
 	closestEnemy = find_closest_enemy()
@@ -55,6 +54,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Jump") and (is_on_floor() or CoyoteActive or bounceable):
 		velocity.y = JUMP_VELOCITY
 		if bounceable and !is_on_floor():
+			velocity.y += JUMP_VELOCITY / 3
 			velocity += 150 * (-(closestEnemy.global_position - player.global_position).normalized())
 
 	# Get the input direction and handle the movement/deceleration.
@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = move_toward(velocity.x, direction * SPEED, SPEED / 10)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED/ 5)
 	
 	#print(bounceable)
 	#print(velocity)
