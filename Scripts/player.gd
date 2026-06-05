@@ -104,4 +104,5 @@ func _kill_player():
 	global_position = checkpoint_manager.last_location
 	velocity.x = 0
 	velocity.y = 0
+	get_tree().call_group("enemy", "player_death")
 	

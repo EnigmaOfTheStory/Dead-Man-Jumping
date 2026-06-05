@@ -28,6 +28,5 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
-func _on_player_player_death():
-	self.global_position.x = spawn.x
-	self.global_position.y = spawn.y
+func player_death():
+	global_position = spawn
