@@ -5,9 +5,11 @@ var enemy
 var speed
 var direction
 var distance
+var spawn
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	spawn = self.global_position
 	player = get_parent().get_parent().get_node("Player")
 	speed = 45
 	enemy = self
@@ -23,8 +25,9 @@ func _physics_process(_delta: float) -> void:
 		velocity = 0 * -direction
 	#print(direction)
 	
-	
-	
-	
-	
 	move_and_slide()
+
+
+func _on_player_player_death():
+	self.global_position.x = spawn.x
+	self.global_position.y = spawn.y

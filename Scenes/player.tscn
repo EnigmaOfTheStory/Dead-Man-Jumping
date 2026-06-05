@@ -36,7 +36,6 @@ scale = Vector2(0.10937501, 0.1796875)
 texture = ExtResource("1_4flbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=362138723]
-visible = false
 position = Vector2(0, 4.5)
 shape = SubResource("CapsuleShape2D_onrkg")
 
@@ -46,9 +45,18 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=2013560966]
-visible = false
 shape = SubResource("CapsuleShape2D_i3pqv")
 debug_color = Color(0.9843137, 0, 0, 0.41960785)
+
+[node name="SlowBox" type="Area2D" parent="." unique_id=275517826]
+position = Vector2(0, 4.5)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlowBox" unique_id=1393586037]
+visible = false
+shape = SubResource("CapsuleShape2D_i3pqv")
+debug_color = Color(1, 0, 1, 0.41960785)
 
 [node name="BounceBox" type="Area2D" parent="." unique_id=1402210299]
 position = Vector2(0, 4.5)
@@ -70,7 +78,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_cvnsp")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1186107476]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+position_smoothing_speed = 15.0
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_entered" from="SlowBox" to="." method="_on_slow_box_body_entered"]
+[connection signal="body_exited" from="SlowBox" to="." method="_on_slow_box_body_exited"]
 [connection signal="body_entered" from="BounceBox" to="." method="_on_bounce_box_body_entered"]
 [connection signal="body_exited" from="BounceBox" to="." method="_on_bounce_box_body_exited"]
